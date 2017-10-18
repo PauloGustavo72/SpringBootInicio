@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ListaVIP</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+	<div class="container">
+
+		<div id="listaDeConvidados">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Pergunta</th>
+						<th>IdPessoa</th>
+					</tr>
+				</thead>
+				<tr th:each="convidado : ${convidados}">
+					<td><span th:text="${convidado.id}"></span></td>
+					<td><span th:text="${convidado.pergunta}"></span></td>
+					<td><span th:text="${convidado.idpessoa}"></span></td>
+				</tr>
+				</table>
+	
+		</div>
+		
+		<form action="salvar" method="post">
+			<div class="form-group">
+				<label for="pergunta">Frase em Portugês</label> 
+				<input type="text"
+					class="form-control" id="pergunta" name="pergunta"
+					placeholder="Frase em Português" />
+					
+				<label for="traducao">Frase em Ingês</label> 
+				<input type="text"
+					class="form-control" id="traducao" name="traducao"
+					placeholder="Frase em Inglês" />
+			</div>
+			
+			
+			<button type="submit" class="btn btn-success">Adicionar</button>
+			<a href="/index" class="btn btn-success">Voltar</a>
+		</form>
+
+	</div>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>
